@@ -45,4 +45,5 @@ RUN curl http://mvapich.cse.ohio-state.edu/download/mvapich/mv${MAJV}/${DIR}.tar
     && cd ${DIR} \
     && ./configure \
     && make -j $(nproc --all 2>/dev/null || echo 2) && make install \
+    && mpicc examples/hellow.c -o /usr/bin/hellow
     && cd ../ && rm -rf ${DIR}
